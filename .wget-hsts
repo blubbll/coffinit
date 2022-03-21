@@ -1,0 +1,5 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>[:<port>]	<incl. subdomains>	<created>	<max-age>
+discord.com	0	1	1646825283	31536000
+pbs.twimg.com	0	0	1647790461	631138519

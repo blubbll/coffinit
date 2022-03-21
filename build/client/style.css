@@ -1,0 +1,342 @@
+body, html{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgb(14,125,194);
+}
+
+/* no discover */
+.searchHeader-3ZIh2x {
+  display: none;
+}
+
+/* no addserver */
+.tutorialContainer-2jwoiB {
+  display: none;
+}
+
+/* no native loadingtips */
+.container-2RRFHK{
+  display: none;
+}
+
+/* burger */
+#side-burger: {
+  display: flex !important;
+}
+.guilds-2JjMmN {
+  padding-top: 56px;
+}
+#side-burger {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: transparent;
+}
+#side-burger svg {
+  fill: var(--logo-primary);
+}
+
+/* no nickname */
+.nameTag-sc-gpq {
+  display: none;
+}
+/* user bottomleft */
+.panels-3wFtMD{
+     transform: rotate(90deg);
+    position: fixed;
+    left: -23px;
+    bottom: 62px;
+    border-radius: 5rem;
+} 
+
+.avatarWrapper-1B9FTW {
+  transform: rotate(-90deg) scale(1.2);
+}
+.container-YkUktl .horizontal-1Piu5- button {
+  transform: rotate(-90deg);
+}
+/* usericon bottom */
+.container-YkUktl img {
+  image-rendering: pixelated;
+}
+
+/*friend bg fix */
+.peopleColumn-1wMU14 {
+  background: var(--background-primary);
+}
+
+/* smoller sidebar items */
+@media (max-width: 400px) {
+  .listItem-3SmSlK {
+    width: 100% !important;
+    transform: scale(0.75) !important;
+  }
+  .guilds-2JjMmN {
+    flex-shrink: 1 !important;
+    width: 80px !important;
+  }
+  /* user */
+  .mask-1FEkla.svg-2azL_l {
+    width: 35px;
+    left: -8px;
+  }
+  /* settings */
+  .nameTag-sc-gpq.canCopy-IgTwyV,
+  .flex-2S1XBF.flex-3BkGQD.horizontal-112GEH.horizontal-1Piu5-.flex-3BkGQD.directionRow-2Iu2A9.justifyStart-2Mwniq.alignStretch-Uwowzr.noWrap-hBpHBz {
+    display: none;
+  }
+  #popout_19 {
+    display: none;
+  }
+}
+/* guildlist tweaks */
+.guildListSection-3UxZHY {
+  min-width: unset !important;
+}
+@media (max-width: 800px) {
+  .guildList-3GXKvP {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+  }
+}
+@media (min-width: 800px) {
+  .guildList-3GXKvP {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  }
+}
+
+/* gift icon in chat */
+.buttons-uaqb-5 > button {
+  display: none !important;
+}
+
+/* discovery */
+.pageWrapper-2PwDoS {
+  background: var(--background-primary) !important;
+}
+.card-2TuZPZ {
+  height: 100% !important;
+}
+/* discovery card */
+.cardHeader-1kPMOm {
+  height: unset !important;
+  margin-bottom: 16px !important;
+}
+
+/* no toolbar crap */
+.toolbar-3_r2xA {
+  display: none;
+}
+/* no discriminator  */
+.subtext-2HDqJ7 {
+  display: none;
+}
+#app-mount, .container-1eFtFS {
+  height: calc(100vh - 26px);
+}
+
+:root{
+  --info-height: 32px;
+}
+html.is-mobile .chat-2ZfjoI {
+  height: calc(100% - (var(--info-height) * 2))
+}
+
+/* info */
+#info {
+  height: --var-info-height;
+  z-index: 2;
+  background: var(--background-floating);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  padding: 5px 15px;
+  width: 100%;
+  color: var(--interactive-muted);
+  outline: 2px solid var(--background-floating);
+}
+
+/* apps */
+.downloadApps-14IgKV {
+  min-width: unset !important;
+}
+
+/* friend btns */
+.tabBar-ra-EuL {
+  flex-flow: wrap;
+}
+
+@media (min-width: 800px) {
+  .panels-3wFtMD {
+    left: -8px;
+  }
+
+  .bg-1QIAus,
+  .layers-OrUESM,
+  .app-2CXKsg {
+    border-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .app-3xd6d0 {
+    outline: 2px solid var(--background-floating);
+    border-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  #app-mount {
+    padding: 16px;
+    padding-bottom: 0px;
+    /* border-radius: 16px; */
+    background: transparent;
+  }
+  #info {
+    bottom: 1px;
+    width: calc(100% - var(--info-height));
+    left: 16px;
+  }
+}
+
+/*' sidebar */
+.sidebar-1tnWFu {
+  width: 200px;
+}
+
+/* no signup bg */
+.artwork-L5TAwQ{
+  display: none
+}
+/* mobilefix for chat */
+.form-3gdLxP{
+  margin-top: 0!important;
+}
+/* app bg */
+/* loginbox bg */
+.authBox-1HR6Ha {
+  background: transparent!important;
+    backdrop-filter: blur(4px);
+  border-radius: 16px;
+    outline: 1px solid rgba(255,255,255,.4);
+}
+/* no qr */
+.qrLogin-1ejtpI, .verticalSeparator-2r9gHa{
+  display: none;
+}
+/* bg canvas */
+canvas{
+  left: 0;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+/* no logo at signup */
+.logo-2Rw1Ex{
+opacity: 1;
+    font-family: var(--font-display);
+    color: white;
+    font-size: 32px;
+    background: transparent;
+}
+/* ^ but mobile */
+@media (max-width: 486px){
+.authBox-1HR6Ha:before{
+  text-align: center;
+  content: "Zircord";
+font-family: var(--font-display);
+    color: white;
+    font-size: 32px;
+  background: none!important;
+}
+  /* no scrollbars on mobile*/
+  form {
+    overflow: hidden;
+  }
+}
+
+/* login input */
+.wrapper-1f5byN input{
+      background: var(--background-accent-3);
+}
+/* show store on mobile*/
+.hiddenOnMobileStore-2z5BJi{
+  display: flex!important;
+}
+/* no store miwidth */
+.premiumContainer-3GGa8Q{
+  min-width: unset!important
+}
+
+/* shitty green dl popup */
+.notice-2HEN-u{
+  display: none;
+}
+
+/* no nitro guild popup */
+.channelNotice-7cg_jN{
+  display: none;
+}
+
+/* no shitty anims */
+* {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+/* no student hub shit in discovery */
+.#app-mount > div.app-3xd6d0 > div > div.layers-OrUESM.layers-1YQhyW > div > div > div > div > div.sidebar-1tnWFu.hasNotice-1s68so > div > div.categoryItem-Kc_HK_.container-1oeRFJ.clickable-28SzVr{
+  display: none;
+}
+
+/* cookieyes stuff */
+.cky-consent-bar {
+       border-color: #2a2a2a;
+    background: rgba(0,0,0,.3)!important;
+    height: 100%;
+    backdrop-filter: blur(1rem);
+}
+.cky-consent-container {
+    width: 100vw;
+    left: 0;
+    top: 0;
+    height: 100vh;
+}
+.cky-notice{
+  display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+#nom{
+  max-height: 50vh;
+  width: 50vh;
+  align-self: center;
+  border-radius: 2rem;
+}
+
+#bgm-frame{
+  width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+#bgm-t svg{
+  fill: var(--interactive-normal)
+}
+#bgm-t.active svg{
+  fill: var(--interactive-active)
+}
+#bgm-t.active:hover svg{
+  background: var(--interactive-hover)
+}
+.container-YkUktl button[role="switch"]{
+  display: none;
+}
