@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300i);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300i);
+.circle-enter {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  position: fixed;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: opacity 7s linear, -webkit-transform 7s linear;
+  transition: transform 7s linear, opacity 7s linear;
+  transition: transform 7s linear, opacity 7s linear, -webkit-transform 7s linear;
+  will-change: transform, opacity;
+  overflow: visible; }
+
+.circle-enter-active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 0; }
+
+.initializer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Merriweather', serif;
+  font-size: 2em;
+  font-style: italic;
+  font-weight: 300;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: fixed; }
+
+.canvas {
+  height: 100%;
+  text-align: center; }
+
+.generation-toggle-btn {
+  margin: auto;
+  position: fixed;
+  bottom: 10px;
+  background-color: transparent;
+  font-size: 2em;
+  border: none;
+  cursor: pointer;
+  opacity: 0.2;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%); }
+  .generation-toggle-btn:hover {
+    opacity: 1; }
+  .generation-toggle-btn:focus {
+    outline: none; }
+
+.alex-bainter-link {
+  opacity: 0.35;
+  position: absolute;
+  bottom: 5px;
+  right: 7px;
+  margin: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  color: black; }
+  .alex-bainter-link:hover {
+    opacity: 1; }
+
+@media (max-width: 600px) {
+  .alex-bainter-link {
+    font-size: 0.75em; } }
+
+.loading-message {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Merriweather', serif;
+  font-size: 2em;
+  font-style: italic;
+  font-weight: 300;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+
+
+
+.generation-toggle-btn, .initializer, .loading-message {
+display: none!important;
+}

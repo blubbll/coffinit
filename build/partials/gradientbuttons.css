@@ -1,0 +1,170 @@
+/**
+    * @name Gradient Buttons V2
+    * @version 2.3.0
+    * @descriptionAdd some spice to your buttons.. with gradients!
+    * @author LuckFire#4800
+    *
+    * @website https://github.com/LuckFire
+    * @source https://github.com/LuckFire/GradientButtons-v2/tree/main/src
+**/
+
+#app-mount .lookFilled-yCfaCM {
+    -webkit-transform: var(--transform-normal)!important;
+            transform: var(--transform-normal)!important;
+    -webkit-transition: var(--button-transition)!important;
+    transition: var(--button-transition)!important;
+}
+#app-mount .lookFilled-yCfaCM:hover {
+    -webkit-transform: var(--button-transform-hover)!important;
+            transform: var(--button-transform-hover)!important;
+}
+#app-mount .lookFilled-yCfaCM[disabled] {
+    -webkit-transform: none!important;
+            transform: none!important;
+}
+#app-mount .lookFilled-yCfaCM.colorBrand-I6CyqQ {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-blurple)))!important;
+    background: linear-gradient(var(--gradient-blurple))!important;
+}
+#app-mount .lookFilled-yCfaCM.colorGreen-3y-Z79, #app-mount .lookFilled-yCfaCM.button-1EGGcP.buttonActive-Uc1jHx {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-green)))!important;
+    background: linear-gradient(var(--gradient-green))!important;
+}
+#app-mount .lookFilled-yCfaCM.colorYellow-Pgtmch {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-yellow)))!important;
+    background: linear-gradient(var(--gradient-yellow))!important;
+}
+#app-mount .lookFilled-yCfaCM.colorRed-rQXKgM {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-red)))!important;
+    background: linear-gradient(var(--gradient-red))!important;
+}
+#app-mount .lookFilled-yCfaCM.colorPrimary-2AuQVo, #app-mount .lookFilled-yCfaCM.colorGrey-2iAG-B, #app-mount .lookFilled-yCfaCM.buttonColor-3bP3fX {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-grey)))!important;
+    background: linear-gradient(var(--gradient-grey))!important;
+}
+
+#app-mount .guilds-2JjMmN .wrapper-3kah-n .homeIcon-FuNwkv {
+    -webkit-transition: var(--button-transition)!important;
+    transition: var(--button-transition)!important;
+    -webkit-transform: var(--transform-normal)!important;
+            transform: var(--transform-normal)!important;
+}
+#app-mount .guilds-2JjMmN .wrapper-3kah-n.selected-1Drb7Z .childWrapper-1j_1ub {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-blurple)))!important;
+    background: linear-gradient(var(--gradient-blurple))!important;
+}
+#app-mount .guilds-2JjMmN .wrapper-3kah-n.selected-1Drb7Z .homeIcon-FuNwkv {
+    -webkit-transform: var(--transform-hover)!important;
+            transform: var(--transform-hover)!important;
+}
+#app-mount .guilds-2JjMmN .circleIconButton-1QV--U svg {
+    -webkit-transition: var(--button-transition)!important;
+    transition: var(--button-transition)!important;
+    -webkit-transform: var(--transform-normal)!important;
+            transform: var(--transform-normal)!important;
+}
+#app-mount .guilds-2JjMmN .circleIconButton-1QV--U.selected-1JjBPm {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-green)))!important;
+    background: linear-gradient(var(--gradient-green))!important;
+}
+#app-mount .guilds-2JjMmN .circleIconButton-1QV--U.selected-1JjBPm svg {
+    -webkit-transform: var(--transform-hover)!important;
+            transform: var(--transform-hover)!important;
+    color: white!important;
+}
+
+#app-mount .menu-1QACrS .item-1OdjEX {
+    font-weight: var(--font-default)!important;
+    -webkit-transition: var(--button-transition)!important;
+    transition: var(--button-transition)!important;
+}
+#app-mount .menu-1QACrS .item-1OdjEX.focused-3qFvc8, #app-mount .menu-1QACrS .item-1OdjEX:active {
+    font-size: var(--fontsize-hover)!important;
+    font-weight: var(--font-hover)!important;
+}
+#app-mount .menu-1QACrS .colorDefault-CDqZdO.focused-3qFvc8, #app-mount .menu-1QACrS .colorDefault-CDqZdO:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-blurple)))!important;
+    background: linear-gradient(var(--gradient-blurple))!important;
+}
+#app-mount .menu-1QACrS .colorDanger-3n-KnP.focused-3qFvc8, #app-mount .menu-1QACrS .colorDanger-3n-KnP:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-red)))!important;
+    background: linear-gradient(var(--gradient-red))!important;
+}
+#app-mount .menu-1QACrS .colorPremium-vwmYZQ.focused-3qFvc8, #app-mount .menu-1QACrS .colorPremium-vwmYZQ:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-special)))!important;
+    background: linear-gradient(var(--gradient-special))!important;
+}
+#app-mount .menu-1QACrS #status-picker-online.focused-3qFvc8, #app-mount .menu-1QACrS #status-picker-online:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-green)))!important;
+    background: linear-gradient(var(--gradient-green))!important;
+}
+#app-mount .menu-1QACrS #status-picker-idle.focused-3qFvc8, #app-mount .menu-1QACrS #status-picker-idle:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-yellow)))!important;
+    background: linear-gradient(var(--gradient-yellow))!important;
+}
+#app-mount .menu-1QACrS #status-picker-dnd.focused-3qFvc8, #app-mount .menu-1QACrS #status-picker-dnd:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-red)))!important;
+    background: linear-gradient(var(--gradient-red))!important;
+}
+#app-mount .menu-1QACrS #status-picker-invisible.focused-3qFvc8, #app-mount .menu-1QACrS #status-picker-invisible:active {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-grey)))!important;
+    background: linear-gradient(var(--gradient-grey))!important;
+}
+
+#app-mount .wrapper-2vIMkT .button-3bklZh img, #app-mount .wrapper-2vIMkT .button-3bklZh svg {
+    -webkit-transition: var(--button-transition)!important;
+    transition: var(--button-transition)!important;
+    -webkit-transform: var(--transform-normal)!important;
+            transform: var(--transform-normal)!important;
+}
+#app-mount .wrapper-2vIMkT .button-3bklZh:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-blurple)))!important;
+    background: linear-gradient(var(--gradient-blurple))!important;
+}
+#app-mount .wrapper-2vIMkT .button-3bklZh:hover svg {
+    -webkit-transform: var(--transform-hover)!important;
+            transform: var(--transform-hover)!important;
+    color: white!important;
+}
+#app-mount .wrapper-2vIMkT .button-3bklZh.dangerous-Y36ifs:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-red)))!important;
+    background: linear-gradient(var(--gradient-red))!important;
+}
+
+#app-mount [aria-label$=_SETTINGS] .side-2ur1Qk .item-3XjbnG {
+    font-weight: var(--font-default)!important;
+    -webkit-transition: var(--button-transition)!important;
+    transition: var(--button-transition)!important;
+}
+#app-mount [aria-label$=_SETTINGS] .side-2ur1Qk .item-3XjbnG:hover {
+    font-weight: var(--font-hover)!important;
+}
+#app-mount [aria-label$=_SETTINGS] .side-2ur1Qk .item-3XjbnG.selected-g-kMVV {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-blurple)))!important;
+    background: linear-gradient(var(--gradient-blurple))!important;
+    color: #fff!important;
+    font-weight: var(--font-hover)!important;
+}
+#app-mount [aria-label$=_SETTINGS] .side-2ur1Qk .item-3XjbnG.selected-g-kMVV.premiumTabItem-1QTfBr, #app-mount [aria-label$=_SETTINGS] .side-2ur1Qk .item-3XjbnG.selected-g-kMVV.serverBoostTabItem-2hFTIN {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--gradient-special)))!important;
+    background: linear-gradient(var(--gradient-special))!important;
+}
+
+:root {
+    /* Gradients */
+    --gradient-special: 140deg, #8980F0 0%, #D577F0 100%!important;
+    --gradient-blurple: 140deg, #5865f2 0%, #2a328a 100%!important;
+    --gradient-green: 140deg, #3BA55D 0%, #15662f 100%!important;
+    --gradient-yellow: 140deg, #FAA81A 0%, #be8013 100%!important;
+    --gradient-red: 140deg, #ed4245 0%, #912b2d 100%!important;
+    --gradient-grey: 140deg, #747F8D 0%, #3c424b 100%!important;
+
+    /* Transitions */
+    --button-transition: 0.1s linear!important;
+    --font-default: 500!important;
+    --font-hover: bold!important;
+    --fontsize-hover: 15px!important;
+    --transform-normal: scale(1)!important;
+    --transform-hover: scale(1.15)!important;
+    --button-transform-hover: scale(1.04)!important;
+}
