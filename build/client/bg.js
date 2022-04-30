@@ -1,5 +1,12 @@
 "use strict";
 {
+  function isCanvasBlank(canvas) {
+    return !canvas
+      .getContext("2d")
+      .getImageData(0, 0, canvas.width, canvas.height)
+      .data.some((channel) => channel !== 0);
+  }
+
   const i = setInterval((_) => {
     const p5 = window.p5;
     if (p5) {
@@ -49,50 +56,58 @@
                 }
                 yoff += 1; //0.2
               }
-            }
 
-            if (!iconDrawn) {
-              let saveCanvas = document.createElement("canvas");
-              saveCanvas.width = 150; // width of saved image
-              saveCanvas.height = 150; // height of saved image
-              let cropStartX = 0; // position to start cropping image
-              let cropStartY = 0;
-              var ctx = saveCanvas.getContext("2d");
+              if (isCanvasBlank($this.canvas) || !iconDrawn) {
+                let saveCanvas = document.createElement("canvas");
+                saveCanvas.width = 140; // width of saved image
+                saveCanvas.height = 140; // height of saved image
+                let cropStartX = 0; // position to start cropping image
+                let cropStartY = 0;
+                var ctx = saveCanvas.getContext("2d");
 
-              //ctx.rotate(90 * Math.PI / 180);
-              // ctx.translate(0, -saveCanvas.width);
+                //ctx.rotate(90 * Math.PI / 180);
+                // ctx.translate(0, -saveCanvas.width);
 
-              ctx.drawImage(
-                $this.canvas,
-                cropStartX,
-                cropStartY,
-                26,
-                26,
-                0,
-                0,
-                saveCanvas.width,
-                saveCanvas.height
-              );
+                ctx.drawImage(
+                  $this.canvas,
+                  cropStartX,
+                  cropStartY,
+                  26,
+                  26,
+                  0,
+                  0,
+                  saveCanvas.width,
+                  saveCanvas.height
+                );
 
-              ctx.beginPath();
-              ctx.fillStyle = "white";
-              ctx.font = "bold 90pt Verdana";
-              ctx.textAlign = "center";
-              ctx.shadowOffs = 0;
-              ctx.fillText("♡", 75, 120);
-              ctx.globalCompositeOperation = "destination-in";
-              ctx.arc(
-                saveCanvas.width / 2,
-                saveCanvas.height / 2,
-                saveCanvas.height / 2,
-                0,
-                Math.PI * 2
-              );
+                ctx.beginPath();
+                ctx.fillStyle = "white";
+                ctx.font = "bold 90pt Verdana";
+                ctx.textAlign = "center";
+                ctx.shadowOffs = 0;
+                ctx.fillText("♡", 75, 120);
+                ctx.globalCompositeOperation = "destination-in";
+                ctx.arc(
+                  saveCanvas.width / 2,
+                  saveCanvas.height / 2,
+                  saveCanvas.height / 2,
+                  0,
+                  Math.PI * 2
+                );
 
-              ctx.fill();
-              document.querySelector("link#favicon").href =
-                saveCanvas.toDataURL("image/png");
-              iconDrawn = true;
+                ctx.fill();
+                var b64 = saveCanvas.toDataURL("image/png");
+                document.querySelector("link#favicon").href = b64;
+
+                if (Zircord.mode == "hybrid") {
+                  fetch(Zircord.LOCAL_API + "/app/icon", {
+                    method: "POST",
+                    body: b64,
+                  });
+                }
+
+                iconDrawn = true;
+              }
             }
           }),
           ($this.windowResized = (_) => {
@@ -101,16 +116,17 @@
             $this.setup();
             $this.resizeCanvas($this.windowWidth, $this.windowHeight);
           });
+        $this.setup();
       });
 
       clearInterval(i);
     }
   }, 399);
-  function debounce(func){
-  var timer;
-  return function(event){
-    if(timer) clearTimeout(timer);
-    timer = setTimeout(func,999,event);
-  };
-}
+  function debounce(func) {
+    var timer;
+    return function (event) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(func, 999, event);
+    };
+  }
 }
