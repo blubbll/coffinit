@@ -1,128 +1,147 @@
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      <title>Zircord</title>
-      <style>
-         body,html{
-         overflow: hidden;
-         }
-      </style>
-      <script id="discord">
-         const user = localStorage.getItem("MultiAccountStore") ? JSON.parse(
-           localStorage.getItem("MultiAccountStore")
-         )._state.users.find(
-           (x) =>
-             x.tokenStatus === 2 &&
-             x.id == JSON.parse(localStorage.getItem("user_id_cache"))
-         ) : void 0;
-         if(!user && location.href.endsWith("!"))
-         //location.replace("https://discord.gg/5hSmPsX5GT")
-         location.replace("https://znw.social/invite/lobby")
-      </script>  
-      <script id="upup" src="//{{host}}/upup.js"></script>
-      <script id="client">{{> inject}}</script>
-      <link id="favicon" type="image/png" rel="shortcut icon"/>
-      <style>{{> bs-css}}</style>
-      <script>if (location.protocol !== 'https:') {
-         location.replace(`https:${location.href.substring(location.protocol.length)}`);
-         }
-      </script>
-      <script>
-         {{> p5}}
-      </script>
-      <script>
-         {{> bg}}
-      </script>
 
-    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/83e985f6228a24bb29e83f5c/script.js"></script>
-     
-   </head>
-   <body>
-     <iframe id="bgm-frame"></iframe>
-      {{> loader}}
-      <div id="app-mount"> </div>
-      <script>
-         window.__OVERLAY__ = /overlay/.test(location.pathname);
-         window.__BILLING_STANDALONE__ = /^\/billing/.test(location.pathname);
-         window.GLOBAL_ENV = {
-             API_ENDPOINT: "/api",
-             API_VERSION: 9,
-             GATEWAY_ENDPOINT: `${location.protocol === "https:" ? "wss://" : "ws://"}` + "{{host}}/ws",
-             WEBAPP_ENDPOINT: "",
-             CDN_HOST: "{{host}}",
-             ASSET_ENDPOINT: "",
-             MEDIA_PROXY_ENDPOINT: "https://" + "{{host}}",
-             WIDGET_ENDPOINT: `//{{{host}}}/widget`,
-             INVITE_HOST: "{{host}}" + `/invite`,
-             GUILD_TEMPLATE_HOST: "{{host}}",
-             GIFT_CODE_HOST: "discord.gift",
-             RELEASE_CHANNEL: "stable",
-             MARKETING_ENDPOINT: "//{{host}}",
-             BRAINTREE_KEY: "production_5st77rrc_49pp2rp4phym7387",
-             STRIPE_KEY: "pk_live_CUQtlpQUF0vufWpnpUmQvcdi",
-             NETWORKING_ENDPOINT: "//{{host}}",
-             RTC_LATENCY_ENDPOINT: "//latency.discord.media/rtc",
-             PROJECT_ENV: "production",
-             REMOTE_AUTH_ENDPOINT: "//{{host}}:3020",
-             SENTRY_TAGS: {
-                 buildId: "75e36d9",
-                 buildType: "normal"
-             },
-             MIGRATION_SOURCE_ORIGIN: "https://{{host}}",
-             MIGRATION_DESTINATION_ORIGIN: "https://{{host}}",
-             HTML_TIMESTAMP: Date.now(),
-             ALGOLIA_KEY: "aca0d7082e4e63af5ba5917d5e96bed0"
-         };
-         GLOBAL_ENV.MEDIA_PROXY_ENDPOINT = location.protocol + "//" + GLOBAL_ENV.CDN_HOST;
-         const localStorage = window.localStorage; // TODO: remote auth //
-         window.GLOBAL_ENV.REMOTE_AUTH_ENDPOINT = "127.0.0.1:1111"//window.GLOBAL_ENV.GATEWAY_ENDPOINT.replace(/wss?:/, "");
-         localStorage.setItem("gatewayURL", window.GLOBAL_ENV.GATEWAY_ENDPOINT);
-         localStorage.setItem("DeveloperOptionsStore", `{"trace":false,"canary":false,"logGatewayEvents":true,"logOverlayEvents":true,"logAnalyticsEvents":true,"sourceMapsEnabled":false,"axeEnabled":false}`);
-         setInterval(() => {
-             try{var token = JSON.parse(localStorage.getItem("token"));
-             if (token) {
-                 var logincss = document.querySelector('#logincss'),
-                     canRemove = logincss ? logincss : "";
-                 if (canRemove !== "") {
-                     document.querySelector("#logincss").remove();
-                     canRemove = "";
-                 }
-             }}catch{}
-         }, 1000);
-         const settings = JSON.parse(localStorage.getItem("UserSettingsStore"));
-         if (settings && settings.locale.length <= 2) {
-             /* fix client locale wrong and client not
-                  loading at all */
-             settings.locale = "en-US";
-             localStorage.setItem("UserSettingsStore", JSON.stringify(settings));
-         }
-      </script>
-      <script src="//{{host}}/assets/checkLocale.js"></script>
-      <!-- client js -->
-      <script src="//{{host}}/dssets/690806ed591bad8a4037.js"></script>
-      <script src="//{{host}}/dssets/e6e66bb0fd245ec0a7d5.js"></script>
-      <script src="//{{host}}/dssets/b049ba4eaa6fb1d688f3.js"></script>
-      <script src="//{{host}}/dssets/c79e7cacf358fab86461.js"></script>
-      <style>
-         {{> themes}}
-      </style>
-      <style>
-         {{> style}}
-      </style>
-   
-   </body>
-   <!--<link
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Zircord</title>
+    <meta name="build" value="{{coffinitVersion}}" />
+    <style>
+        body,
+        html {
+            overflow: hidden;
+        }
+    </style>
+    <script src="//{{host}}/assets/volument.js"></script>
+    <script>
+        if (!location.hostname.endsWith(".") && location.protocol !== 'https:') {
+            location.replace(`https:${location.href.substring(location.protocol.length)}`);
+        } else if (location.hostname.endsWith(".") && location.protocol !== 'http:') {
+            location.replace(`http:${location.href.substring(location.protocol.length)}`);
+        }
+    </script>
+    <script id="discord">
+        const user = localStorage.getItem("MultiAccountStore") ? JSON.parse(localStorage.getItem("MultiAccountStore"))._state.users.find(
+            (x) => x.tokenStatus === 2 && x.id == JSON.parse(localStorage.getItem("user_id_cache"))) : void 0;
+        if (!user && location.href.endsWith("!"))
+            //location.replace("https://discord.gg/5hSmPsX5GT")
+            location.replace("//{{host}}/invite/lobby")
+    </script>
+    <script src="//{{host}}/local/upup.js"></script>
+    <script src="//{{host}}/local/lib/swal.js"></script>
+    <script id="clientmods">{{> inject}}</script>
+    <link id="favicon" type="image/png" rel="shortcut icon" />
+    <style>{{> bs-css}}</style>
+    <script>
+    {{> p5}}
+    </script>
+    <script>
+    {{> bg}}
+    </script>
+</head>
+
+<body>
+    <audio id="jingle"></audio>
+    <iframe id="bgm-frame"></iframe>
+    {{> loader}}
+    <div id="app-mount"> </div>
+    <script>
+        window.__OVERLAY__ = /overlay/.test(location.pathname);
+        window.__BILLING_STANDALONE__ = /^\/billing/.test(location.pathname);
+        window.GLOBAL_ENV = {
+            API_ENDPOINT: "/api",
+            API_VERSION: 9,
+            GATEWAY_ENDPOINT: `${location.protocol === "https:" ? "wss://" : "ws://"}` + "{{host}}/ws",
+            WEBAPP_ENDPOINT: "",
+            CDN_HOST: "{{host}}",
+            ASSET_ENDPOINT: "",
+            MEDIA_PROXY_ENDPOINT: "//" + "{{host}}",
+            WIDGET_ENDPOINT: `//{{{host}}}/widget`,
+            INVITE_HOST: "{{host}}" + `/invite`,
+            GUILD_TEMPLATE_HOST: "{{host}}",
+            GIFT_CODE_HOST: "discord.gift",
+            RELEASE_CHANNEL: "stable",
+            MARKETING_ENDPOINT: "//{{host}}",
+            BRAINTREE_KEY: "production_5st77rrc_49pp2rp4phym7387",
+            STRIPE_KEY: "pk_live_CUQtlpQUF0vufWpnpUmQvcdi",
+            NETWORKING_ENDPOINT: "//{{host}}",
+            RTC_LATENCY_ENDPOINT: "//latency.discord.media/rtc",
+            PROJECT_ENV: "production",
+            REMOTE_AUTH_ENDPOINT: "//{{host}}:3020",
+            SENTRY_TAGS: {
+                buildId: "75e36d9",
+                buildType: "normal"
+            },
+            MIGRATION_SOURCE_ORIGIN: "https://{{host}}",
+            MIGRATION_DESTINATION_ORIGIN: "https://{{host}}",
+            HTML_TIMESTAMP: Date.now(),
+            ALGOLIA_KEY: "aca0d7082e4e63af5ba5917d5e96bed0"
+        };
+        GLOBAL_ENV.MEDIA_PROXY_ENDPOINT = location.protocol + "//" + GLOBAL_ENV.CDN_HOST;
+        const localStorage = window.localStorage; // TODO: remote auth //
+        window.GLOBAL_ENV.REMOTE_AUTH_ENDPOINT = "127.0.0.1:1111" //window.GLOBAL_ENV.GATEWAY_ENDPOINT.replace(/wss?:/, "");
+        localStorage.setItem("gatewayURL", window.GLOBAL_ENV.GATEWAY_ENDPOINT);
+        localStorage.setItem("DeveloperOptionsStore", `{"trace":false,"canary":false,"logGatewayEvents":true,"logOverlayEvents":true,"logAnalyticsEvents":true,"sourceMapsEnabled":false,"axeEnabled":false}`);
+        setInterval(() => {
+            try {
+                var token = JSON.parse(localStorage.getItem("token"));
+                if (token) {
+                    var logincss = document.querySelector('#logincss'),
+                        canRemove = logincss ? logincss : "";
+                    if (canRemove !== "") {
+                        document.querySelector("#logincss").remove();
+                        canRemove = "";
+                    }
+                }
+            } catch {}
+        }, 1000);
+        const settings = JSON.parse(localStorage.getItem("UserSettingsStore"));
+        if (settings && settings.locale.length <= 2) {
+            /* fix client locale wrong and client not
+                 loading at all */
+            settings.locale = "en-US";
+            localStorage.setItem("UserSettingsStore", JSON.stringify(settings));
+        }
+    </script>
+    <!--<script src="//{{host}}/lssets/checkLocale.js"></script>-->
+    <!-- client js -->
+    <!--<script src="//{{host}}/dssets/5152e4f4a4b5dd98a94d.js"></script>
+      <script src="//{{host}}/dssets/ca775e9b3d0d8f99afb7.js"></script>
+      <script src="//{{host}}/dssets/75f0173111dac4b806df.js"></script>
+      <script src="//{{host}}/dssets/a7c89dd53d533737e2eb.js"></script>-->
+    <script src="//{{host}}/local/ckl.js"></script>
+    {{#if isDev}}
+        <script id="client" src="/local/client_dev.js">
+    {{else}}
+        <script id="client" src="/local/client_prod.js">
+    {{/if}}
+    </script>
+    <style>
+    {{> themes}}
+    </style>
+    <style>
+    {{> style}}
+    </style>
+</body>
+<!--<link
       id="themecss"
       rel="stylesheet"
       href="https://{{host}}/local/theme.css"
       />-->
-   <!--<link
+<!--<link
       id="customcss"
       rel="stylesheet"
       href="https://{{host}}/local/style.css"
       />-->
-   <script>
-      {{> peerjs}}
-   </script>
+<script>
+{{> peerjs}}
+</script>
+<script>
+    /*var script = document.createElement('script');
+script.type = 'text/javascript';
+    script.id="cookieyes"
+script.src = 'https://cdn-cookieyes.com/client_data/83e985f6228a24bb29e83f5c/script.js';    
+
+document.head.appendChild(script);*/
+</script>
+
 </html>

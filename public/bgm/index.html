@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <!-- saved from url=(0032)https://blossom.alexbainter.com/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link href="./main.css" rel="stylesheet"></head>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="./main.css" rel="stylesheet" />
+  </head>
 
-  <body style="opacity: 0;">
-    <div id="root"><div class="canvas"><div class="initializer"></div></div></div>
-  <script type="text/javascript" src="./main.js"></script>
+  <body style="opacity: 0">
+    <div id="root">
+      <div class="canvas"><div class="initializer"></div></div>
+    </div>
+    <script type="text/javascript" src="./main.js"></script>
 
     <script>
-      
-      setInterval(_=>{
+      let volumeFixed = false;
+      setInterval((_) => {
+        //document.write(document.documentElement.innerHTML)
+      }, 30 * 1000);
 
-  //document.write(document.documentElement.innerHTML)
-  
-  }, 30 * 1000)
-      
-      
-      function click(x, y)
-{
-    document
-    .querySelector(".canvas")
-        .dispatchEvent(
-            new MouseEvent(
-                "click", // or "mousedown" if the canvas listens for such an event
-                {
-                    clientX: x,
-                    clientY: y,
-                    bubbles: true
-                }
-            )
+      function click(x, y) {
+        document.querySelector(".canvas").dispatchEvent(
+          new MouseEvent(
+            "click", // or "mousedown" if the canvas listens for such an event
+            {
+              clientX: x,
+              clientY: y,
+              bubbles: true,
+            }
+          )
         );
-}
-      
-     if (!window.isTop) {
+      }
+
+      if (!window.isTop) {
         window.addEventListener("message", (event) => {
-          console.warn(event)
-          if(event.data){
-            
-            window.TONE_AUDIO_CONTEXT.destination.volume.value = -42;
-            
-          click(event.data.x, event.data.y)
+          if (event.data) {
+            if (!volumeFixed) {
+              window.TONE_AUDIO_CONTEXT.destination.volume.value = -36;
+              volumeFixed = true;
             }
-          
-            if (event.data &&
-                event.data.sender == "get_page_button2") {
-                alert("Frame window alert 2");
-            }
+
+            if (event.data.muted !== void 0)
+              window.TONE_AUDIO_CONTEXT.destination.mute = event.data.muted;
+
+            if (event.data.x && event.data.y) click(event.data.x, event.data.y);
+          }
         });
-    }
+      }
     </script>
-    
-</body></html>
+  </body>
+</html>
